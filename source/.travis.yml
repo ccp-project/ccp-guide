@@ -1,0 +1,13 @@
+language: rust
+rust:
+    - nightly
+cache: cargo
+install:
+  - pip install --user setuptools
+  - pip install --user setuptools_rust
+before_script:
+  - rustup toolchain install stable
+  - rustup component add --toolchain stable rustfmt
+script:
+  - cargo +stable fmt --all -- --check
+  - make travis

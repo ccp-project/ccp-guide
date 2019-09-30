@@ -1,0 +1,13 @@
+*target*
+**/*.rs.bk
+Cargo.lock
+*.o
+*.ko
+*.symvers
+*.order
+*.cmd
+*.tmp*
+*.mod.c
+*.rustfmt
+*.so
+integration_tests/libccp_integration/integration-test
