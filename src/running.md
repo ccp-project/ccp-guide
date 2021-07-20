@@ -30,12 +30,17 @@ For example, a typical run of BBR with the Linux Kernel would look like this:
 
     sudo ./target/release/bbr --ipc netlink
 
+CCP algorithms are useless without a datapath to control. When a datapath calls libccp's `ccp_init` 
+function, libccp will send a "ready" message to CCP.  Therefore, it is advisable to first start the 
+algorithm binary, then initialize the datapath. This is, however, optional; in some cases, it is 
+convenient to initialize the datapath first. In these cases, libccp will issue a warning, and the 
+necessary state will be initialized when a flow starts.
 
 </p></details>
 <br/>
 <details><summary><b>Python</b></summary><p>
 
-If you haven't already, install `portus` via pip: `pip install --user portus`. 
+If you haven't already, install `portus` via pip: `pip install --user pyportus`. 
 
 Simply run `sudo python [ALG].py`. If you need to change the ipc mechanism, see the 
 `connect` method in the python source file. We have not provided command line arguments
